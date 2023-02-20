@@ -37,14 +37,14 @@ public:
     _file.open(_FILENAME, _file.out | _file.app);
   }
 
-  ~Logger();
-  void addLog(Type errortype, string msg, chrono::time_point
-                <std::chrono::steady_clock> time= 
-                chrono::steady_clock::now()){
+  ~Logger(){}
 
-  }
+  void addLog(Type errortype, string msg, chrono::time_point<chrono::steady_clock> time= 
+                chrono::steady_clock::now());
 private:
-  chrono::time_point<std::chrono::steady_clock> _begin;
+ void printTime(chrono::seconds ms);
+private:
+  chrono::time_point<chrono::steady_clock> _begin;
   Type _level;
   string _FILENAME = "Log.txt";
   fstream _file;
